@@ -1,11 +1,12 @@
-
+import { HeroSection } from "@/components/organisms/HeroSection"
 
 function App() {
-
   return (
- <div>
-    <h1>Vite + React</h1>
- </div>
+    <main className="min-h-screen bg-background">
+      <section aria-label="Photographer landing hero">
+        <HeroSection />
+      </section>
+    </main>
   )
 }
 
