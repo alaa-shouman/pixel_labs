@@ -5,18 +5,22 @@ import { PricesSection } from "@/components/organisms/PricesSection"
 
 function App() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="w-full scroll-smooth bg-background">
       <section aria-label="Photographer landing hero">
         <HeroSection />
       </section>
 
-      <section aria-label="Photographer portfolio gallery" id="portfolio">
-        <PortfolioSection/>
+      <section aria-label="Photographer portfolio gallery">
+        <PortfolioSection />
       </section>
+
       <section aria-label="About the photographer">
         <AboutMeSection />
       </section>
-      <PricesSection />
+
+      <section aria-label="Prices packages">
+        <PricesSection />
+      </section>
     </main>
   )
 }

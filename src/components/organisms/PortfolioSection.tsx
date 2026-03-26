@@ -82,9 +82,9 @@ export function PortfolioSection() {
         <section
             id="portfolio"
             aria-label="Photography portfolio gallery"
-            className="bg-[#f3f2f0] px-4 py-16 text-[#353535] sm:px-6 md:py-20"
+            className="flex min-h-dvh flex-col items-center justify-center bg-[#f3f2f0] px-4 py-16 text-[#353535] sm:px-6 md:py-20"
         >
-            <div className="mx-auto b flex w-full max-w-5xl flex-col items-center">
+            <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
                 <p className="text-xs font-semibold tracking-[0.2em] text-[#8b8b8b]">PHOTOGRAPHY</p>
                 <h2 className="mt-3 text-4xl font-light tracking-[0.2em] sm:text-5xl">PORTFOLIO</h2>
 
