@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/organisms/HeroSection"
 import { AboutMeSection } from "@/components/organisms/AboutMeSection"
 import { PortfolioSection } from "@/components/organisms/PortfolioSection"
+import { PricesSection } from "@/components/organisms/PricesSection"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <section aria-label="About the photographer">
         <AboutMeSection />
       </section>
+      <PricesSection />
     </main>
   )
 }
