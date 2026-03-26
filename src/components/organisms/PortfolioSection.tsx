@@ -84,7 +84,7 @@ export function PortfolioSection() {
             aria-label="Photography portfolio gallery"
             className="bg-[#f3f2f0] px-4 py-16 text-[#353535] sm:px-6 md:py-20"
         >
-            <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
+            <div className="mx-auto b flex w-full max-w-5xl flex-col items-center">
                 <p className="text-xs font-semibold tracking-[0.2em] text-[#8b8b8b]">PHOTOGRAPHY</p>
                 <h2 className="mt-3 text-4xl font-light tracking-[0.2em] sm:text-5xl">PORTFOLIO</h2>
 
@@ -108,7 +108,7 @@ export function PortfolioSection() {
                     })}
                 </div>
 
-                <div className="mt-6 w-full max-w-3xl">
+                <div className="mt-6 w-full max-w-5xl">
                     <div className="grid aspect-square grid-cols-3 grid-rows-3 gap-2 sm:gap-3">
                         {visibleItems.map((item) => (
                             <article key={item.id} className="h-full w-full overflow-hidden bg-[#e8e8e8]">
