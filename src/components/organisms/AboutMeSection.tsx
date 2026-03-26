@@ -25,7 +25,10 @@ export function AboutMeSection() {
 
             <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full" aria-hidden="true">
                 <img src={photoshootImage} alt="" className="absolute bottom-0 h-[85%] w-full object-cover object-top" />
+                {/* Top fade (white to transparent) */}
                 <div className="absolute bottom-0 h-[85%] w-full bg-linear-to-b from-white via-white/80 to-transparent" />
+                {/* Bottom fade to seamlessly blend with the Prices section (gold tone, hidden on mobile) */}
+                <div className="absolute -bottom-2 hidden h-32 w-full bg-linear-to-t from-[#fcf7ec] to-transparent sm:block sm:h-48" />
             </div>
         </section>
     )
