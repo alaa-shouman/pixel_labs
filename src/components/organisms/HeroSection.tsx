@@ -1,4 +1,5 @@
 import photographerImage from "@/assets/photographer.jpg"
+import logoImage from "@/assets/thepixellabs-removebg-preview.png"
 
 export function HeroSection() {
     return (
@@ -11,18 +12,19 @@ export function HeroSection() {
                 />
 
                 <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
-                <div className="hero-fog-top pointer-events-none absolute inset-x-0 top-[-20%] z-[2] h-[58%]" aria-hidden="true" />
-                <div className="hero-fog-bottom pointer-events-none absolute inset-x-0 bottom-[-14%] z-[2] h-[50%]" aria-hidden="true" />
-                <div className="hero-noise pointer-events-none absolute inset-0 z-[3] opacity-[0.14] mix-blend-screen" aria-hidden="true" />
+                <div className="hero-fog-top pointer-events-none absolute inset-x-0 top-[-20%] z-2 h-[58%]" aria-hidden="true" />
+                <div className="hero-fog-bottom pointer-events-none absolute inset-x-0 bottom-[-14%] z-2 h-[50%]" aria-hidden="true" />
+                <div className="hero-noise pointer-events-none absolute inset-0 z-3 opacity-[0.14] mix-blend-screen" aria-hidden="true" />
 
                 <div className="relative z-10 h-full p-8 sm:p-10 md:p-12">
                     <header className="flex items-center justify-between gap-4">
                         <a
                             href="#"
-                            className="inline-flex items-center text-lg tracking-[0.35em] text-white/95 transition-opacity hover:opacity-75"
+                            className="inline-flex items-center gap-3 text-white/95 transition-opacity hover:opacity-75"
                             aria-label="Homepage"
                         >
-                            THE PIXEL LAB
+                            <img src={logoImage} alt="The Pixel Lab logo" className="h-15 w-auto object-contain" />
+                            <span className="hidden text-lg tracking-[0.35em] sm:inline">THE PIXEL LAB</span>
                         </a>
 
                         <nav aria-label="Social media" className="flex items-center gap-8">
