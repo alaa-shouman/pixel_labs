@@ -123,12 +123,14 @@ export function PortfolioSection() {
                     </div>
                 </div>
 
-                <button
-                    type="button"
-                    className="mt-10 border border-[#cfcfcf] px-8 py-3 text-[11px] font-semibold tracking-[0.18em] text-[#696969] transition-colors hover:bg-[#ecebe8]"
+                <a
+                    href="https://www.instagram.com/thepixellab.lb"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-10 inline-block border border-[#cfcfcf] px-8 py-3 text-[11px] font-semibold tracking-[0.18em] text-[#696969] transition-colors hover:bg-[#ecebe8]"
                 >
                     SEE MORE WORKS
-                </button>
+                </a>
             </div>
         </section>
     )

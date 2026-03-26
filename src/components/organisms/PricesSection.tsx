@@ -21,13 +21,8 @@ export function PricesSection() {
     ]
 
     return (
-        <section id="prices" aria-label="Prices packages" className="bg-white py-20 sm:py-32">
-            <style>
-                {`
-                @import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
-                .font-playball { font-family: 'Playball', cursive; }
-                `}
-            </style>
+        <section id="prices" aria-label="Prices packages" className="bg-white py-20 sm:py-32 min-h-screen">
+            
             <div className="mx-auto flex max-w-6xl flex-col items-center px-6 sm:px-10">
                 <h2 className="font-playball text-[3.5rem] tracking-wide text-black sm:text-[4.5rem]">Prices</h2>
 

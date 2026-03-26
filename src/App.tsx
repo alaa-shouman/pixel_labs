@@ -10,8 +10,8 @@ function App() {
         <HeroSection />
       </section>
 
-      <section aria-label="Photographer portfolio gallery">
-        <PortfolioSection />
+      <section aria-label="Photographer portfolio gallery" id="portfolio">
+        <PortfolioSection/>
       </section>
       <section aria-label="About the photographer">
         <AboutMeSection />

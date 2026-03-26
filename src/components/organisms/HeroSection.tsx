@@ -27,33 +27,50 @@ export function HeroSection() {
                             <span className="hidden text-lg tracking-[0.35em] sm:inline">THE PIXEL LAB</span>
                         </a>
 
-                        <nav aria-label="Social media" className="flex items-center gap-8">
+                        <nav aria-label="Social media" className="flex items-center gap-6">
                             <a
-                                href="https://vk.com"
-                                aria-label="VK profile"
-                                className="inline-flex min-w-6 items-center justify-center text-sm font-medium tracking-[0.16em] text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                vk
-                            </a>
-                            <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/thepixellab.lb"
                                 aria-label="Instagram profile"
-                                className="inline-flex min-w-6 items-center justify-center text-base font-medium tracking-[0.16em] text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
+                                className="inline-flex items-center justify-center text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                ig
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                </svg>
                             </a>
                             <a
-                                href="https://facebook.com"
-                                aria-label="Facebook profile"
-                                className="inline-flex min-w-6 items-center justify-center text-lg font-medium tracking-[0.16em] text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
+                                href="https://wa.me/96170821128"
+                                aria-label="WhatsApp contact"
+                                className="inline-flex items-center justify-center text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                f
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
                             </a>
                         </nav>
                     </header>
@@ -68,6 +85,7 @@ export function HeroSection() {
                     <div className="absolute inset-x-0 bottom-8 flex justify-center sm:bottom-10 md:bottom-12">
                         <button
                             type="button"
+                            onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
                             aria-label="Scroll down"
                             className="inline-flex size-12 items-baseline-last justify-center rounded-full border border-white/20 text-white/90 backdrop-blur-sm transition-all hover:border-white/45 hover:text-white"
                         >
