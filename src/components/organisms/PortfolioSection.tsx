@@ -114,7 +114,7 @@ export function PortfolioSection() {
 
                     return {
                         id: item._key,
-                        src: urlFor(item.image).width(900).height(1200).fit("crop").url(),
+                        src: urlFor(item.image).fit("max").url(),
                         category,
                         alt: item.alt || `${category} work`,
                     }

@@ -189,3 +189,95 @@
     opacity: 0.62;
   }
 }
+
+.birthday-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.birthday-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 82%, rgb(255 255 255 / 0.42), transparent 42%),
+    radial-gradient(circle at 82% 80%, rgb(255 255 255 / 0.3), transparent 40%);
+  opacity: 0.55;
+}
+
+.birthday-balloon {
+  position: absolute;
+  left: var(--balloon-left);
+  bottom: -18vh;
+  width: var(--balloon-size);
+  aspect-ratio: 0.82;
+  border-radius: 48% 48% 44% 44%;
+  background:
+    radial-gradient(circle at 30% 22%, rgb(255 255 255 / 0.65), transparent 31%),
+    var(--balloon-color);
+  box-shadow: 0 12px 26px rgb(0 0 0 / 0.18);
+  opacity: 0;
+  animation:
+    birthdayFloatUp var(--balloon-duration) cubic-bezier(0.22, 0.61, 0.36, 1) var(--balloon-delay) forwards,
+    birthdaySway 2.8s ease-in-out var(--balloon-delay) infinite alternate;
+}
+
+.birthday-balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--balloon-color) 70%, black 30%);
+}
+
+.birthday-balloon::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1.5px;
+  height: 96px;
+  transform: translateX(-50%);
+  background: rgb(120 120 120 / 0.5);
+}
+
+@keyframes birthdayFloatUp {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.92);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: translate3d(0, -130vh, 0) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes birthdaySway {
+  0% {
+    margin-left: -8px;
+    rotate: -2deg;
+  }
+
+  100% {
+    margin-left: 8px;
+    rotate: 3deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birthday-balloon {
+    animation: none;
+  }
+}
