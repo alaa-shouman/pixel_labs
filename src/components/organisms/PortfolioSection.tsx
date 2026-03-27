@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react"
 import { sanityClient, urlFor } from "@/lib/sanity"
 
-type PortfolioCategory = "Portrait" | "Fashion" | "Life"
-
 type PortfolioItem = {
     id: string
     src: string
-    category: PortfolioCategory
+    category: string
     alt: string
 }
 
@@ -67,12 +65,10 @@ const portfolioItems: PortfolioItem[] = [
     },
 ]
 
-const filters: Array<"All" | PortfolioCategory> = ["All", "Portrait", "Fashion", "Life"]
-
 type SanityPortfolioItem = {
     _key: string
     alt: string
-    category: PortfolioCategory
+    categoryTitle?: string
     image?: unknown
 }
 
@@ -83,7 +79,7 @@ type SanityPortfolioSection = {
 }
 
 export function PortfolioSection() {
-    const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All")
+    const [activeFilter, setActiveFilter] = useState("All")
     const [sectionLabel, setSectionLabel] = useState("PHOTOGRAPHY")
     const [heading, setHeading] = useState("PORTFOLIO")
     const [items, setItems] = useState<PortfolioItem[]>(portfolioItems)
@@ -95,7 +91,7 @@ export function PortfolioSection() {
             items[]{
                 _key,
                 alt,
-                category,
+                "categoryTitle": coalesce(category->title, category),
                 image
             }
         }`
@@ -114,9 +110,7 @@ export function PortfolioSection() {
                         return null
                     }
 
-                    const category: PortfolioCategory = ["Portrait", "Fashion", "Life"].includes(item.category)
-                        ? item.category
-                        : "Portrait"
+                    const category = item.categoryTitle?.trim() || "Uncategorized"
 
                     return {
                         id: item._key,
@@ -132,6 +126,17 @@ export function PortfolioSection() {
             }
         })
     }, [])
+
+    const filters = useMemo(() => {
+        const dynamicCategories = Array.from(new Set(items.map((item) => item.category)))
+        return ["All", ...dynamicCategories]
+    }, [items])
+
+    useEffect(() => {
+        if (activeFilter !== "All" && !filters.includes(activeFilter)) {
+            setActiveFilter("All")
+        }
+    }, [activeFilter, filters])
 
     const visibleItems = useMemo(() => {
         return items.filter((item) => activeFilter === "All" || item.category === activeFilter).slice(0, 9)
