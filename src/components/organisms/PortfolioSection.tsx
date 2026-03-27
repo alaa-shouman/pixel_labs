@@ -132,15 +132,11 @@ export function PortfolioSection() {
         return ["All", ...dynamicCategories]
     }, [items])
 
-    useEffect(() => {
-        if (activeFilter !== "All" && !filters.includes(activeFilter)) {
-            setActiveFilter("All")
-        }
-    }, [activeFilter, filters])
+    const resolvedActiveFilter = filters.includes(activeFilter) ? activeFilter : "All"
 
     const visibleItems = useMemo(() => {
-        return items.filter((item) => activeFilter === "All" || item.category === activeFilter).slice(0, 9)
-    }, [activeFilter, items])
+        return items.filter((item) => resolvedActiveFilter === "All" || item.category === resolvedActiveFilter).slice(0, 9)
+    }, [resolvedActiveFilter, items])
 
     return (
         <section
@@ -154,7 +150,7 @@ export function PortfolioSection() {
 
                 <div className="mt-10 grid w-full grid-cols-4 gap-3 border-b border-[#dddddd] pb-2 sm:gap-6 sm:pb-3">
                     {filters.map((filter) => {
-                        const isActive = filter === activeFilter
+                        const isActive = filter === resolvedActiveFilter
 
                         return (
                             <button
