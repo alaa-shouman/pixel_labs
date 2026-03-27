@@ -1,35 +1,105 @@
+import { useEffect, useMemo, useState } from "react"
+import { sanityClient } from "@/lib/sanity"
+
+type PricePackage = {
+    name: string
+    price: string
+    duration: string
+    photos: string
+    consultationOnStyle?: boolean
+    order?: number
+}
+
+type SanityPricesSection = {
+    heading?: string
+    whatsAppNumber?: string
+    buttonLabel?: string
+    packages?: PricePackage[]
+}
+
 export function PricesSection() {
-    const packages = [
+    const fallbackPackages: PricePackage[] = [
         {
             name: "MINIMAL",
             price: "100$",
             duration: "2 hours",
             photos: "50-70",
+            consultationOnStyle: true,
+            order: 1,
         },
         {
             name: "STANDART",
             price: "200$",
             duration: "2 hours",
             photos: "50-70",
+            consultationOnStyle: true,
+            order: 2,
         },
         {
             name: "MAXIMUM",
             price: "350$",
             duration: "2 hours",
             photos: "50-70",
+            consultationOnStyle: true,
+            order: 3,
         },
     ]
+
+    const [heading, setHeading] = useState("Prices")
+    const [whatsAppNumber, setWhatsAppNumber] = useState("96170821128")
+    const [buttonLabel, setButtonLabel] = useState("Schedulle photosession")
+    const [packages, setPackages] = useState<PricePackage[]>(fallbackPackages)
+
+    useEffect(() => {
+        const query = `*[_type == "pricesSection"][0]{
+            heading,
+            whatsAppNumber,
+            buttonLabel,
+            packages[]{
+                name,
+                price,
+                duration,
+                photos,
+                consultationOnStyle,
+                order
+            }
+        }`
+
+        void sanityClient.fetch<SanityPricesSection | null>(query).then((data) => {
+            if (!data) {
+                return
+            }
+
+            setHeading(data.heading ?? "Prices")
+            setWhatsAppNumber(data.whatsAppNumber ?? "96170821128")
+            setButtonLabel(data.buttonLabel ?? "Schedulle photosession")
+
+            if (Array.isArray(data.packages) && data.packages.length > 0) {
+                const sanitized = data.packages
+                    .filter((pkg) => pkg.name && pkg.price && pkg.duration && pkg.photos)
+                    .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER))
+
+                if (sanitized.length > 0) {
+                    setPackages(sanitized)
+                }
+            }
+        })
+    }, [])
+
+    const normalizedWhatsAppNumber = useMemo(() => {
+        return whatsAppNumber.replace(/\D/g, "")
+    }, [whatsAppNumber])
 
     return (
         <section id="prices" aria-label="Prices packages" className="bg-white py-20 sm:py-32 min-h-screen">
 
             <div className="mx-auto flex max-w-6xl flex-col items-center px-6 sm:px-10">
-                <h2 className="font-playball text-[3.5rem] tracking-wide text-black sm:text-[4.5rem]">Prices</h2>
+                <h2 className="font-playball text-[3.5rem] tracking-wide text-black sm:text-[4.5rem]">{heading}</h2>
 
                 <div className="mt-14 flex w-full flex-col items-center justify-center gap-8 md:flex-row md:items-stretch lg:gap-10">
                     {packages.map((pkg) => {
                         const message = `Hello! I would like to schedule the ${pkg.name} package (${pkg.price}).`
-                        const waLink = `https://wa.me/96170821128?text=${encodeURIComponent(message)}`
+                        const waLink = `https://wa.me/${normalizedWhatsAppNumber}?text=${encodeURIComponent(message)}`
 
                         return (
                             <div
@@ -51,10 +121,12 @@ export function PricesSection() {
                                         <span className="font-light">number of photos</span>
                                         <span className="font-normal text-[#222]">{pkg.photos}</span>
                                     </div>
-                                    <div className="flex items-end justify-between border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                        <span className="font-light">consultation on style</span>
-                                        <span></span>
-                                    </div>
+                                    {pkg.consultationOnStyle !== false && (
+                                        <div className="flex items-end justify-between border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
+                                            <span className="font-light">consultation on style</span>
+                                            <span></span>
+                                        </div>
+                                    )}
                                 </div>
 
                                 <a
@@ -63,7 +135,7 @@ export function PricesSection() {
                                     rel="noreferrer"
                                     className="mt-12 inline-block w-full rounded-full border border-black/70 py-[0.85rem] text-center text-[0.8rem] text-[#333] transition hover:border-[#666] hover:bg-black/5"
                                 >
-                                    Schedulle photosession
+                                    {buttonLabel}
                                 </a>
                             </div>
                         )
