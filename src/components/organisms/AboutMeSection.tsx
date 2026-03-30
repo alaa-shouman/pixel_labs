@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import photoshootImage from "@/assets/photoshoot.jpg"
 import { sanityClient, urlFor } from "@/lib/sanity"
+import GradientText from "../atoms/GradientText"
 
 type SanityAboutPage = {
     sectionLabel?: string
@@ -47,16 +48,29 @@ export function AboutMeSection() {
 
     return (
         <section id="about" aria-label="About the photographer" className="relative isolate flex min-h-dvh w-full flex-col items-center overflow-hidden bg-white pt-20 sm:pt-24">
+
             <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 text-center sm:px-10">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9a9a9a]">{sectionLabel}</p>
                 <h2 className="mt-8 text-4xl font-light tracking-[0.3em] text-[#222222] sm:text-5xl">{heading}</h2>
 
                 <div className="mt-14 max-w-216 space-y-6 text-lg font-light leading-[1.6] text-[#555555] sm:text-[1.35rem]">
                     {paragraphs.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
+                        <GradientText
+                            colors={["#111111", "#6b7280", "#334155"]}
+                            animationSpeed={5}
+                            showBorder={false}
+                            className="custom-class"
+                            pauseOnHover={false}
+                            yoyo={true}
+
+                        >
+                            {paragraph}
+                        </GradientText>
+
                     ))}
                 </div>
             </div>
+
 
             <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full" aria-hidden="true">
                 <img src={backgroundSrc} alt="" className="absolute bottom-0 h-[85%] w-full object-cover object-top" />
@@ -65,6 +79,7 @@ export function AboutMeSection() {
                 {/* Bottom fade to seamlessly blend with the Prices section (gold tone, hidden on mobile) */}
                 <div className="absolute -bottom-2 hidden h-32 w-full bg-linear-to-t from-[#fcf7ec] to-transparent sm:block sm:h-48" />
             </div>
+
         </section>
     )
 }
