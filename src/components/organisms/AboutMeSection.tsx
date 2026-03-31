@@ -47,7 +47,7 @@ export function AboutMeSection() {
 
     return (
         <section id="about" aria-label="About the photographer" className="relative isolate flex min-h-dvh w-full flex-col items-center overflow-hidden bg-white pt-20 sm:pt-24">
-            
+
             <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 text-center sm:px-10">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9a9a9a]">{sectionLabel}</p>
                 <h2 className="mt-8 text-4xl font-light tracking-[0.3em] text-[#222222] sm:text-5xl">{heading}</h2>
@@ -61,12 +61,12 @@ export function AboutMeSection() {
 
             <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full" aria-hidden="true">
                 <img src={backgroundSrc} alt="" className="absolute bottom-0 h-[85%] w-full object-cover object-top" />
-                {/* Top fade (white to transparent) */}
-                <div className="absolute bottom-0 h-[85%] w-full bg-linear-to-b from-white via-white/80 to-transparent" />
-                {/* Bottom fade to seamlessly blend with the Prices section (gold tone, hidden on mobile) */}
-                <div className="absolute -bottom-2 hidden h-32 w-full bg-linear-to-t from-[#fcf7ec] to-transparent sm:block sm:h-48" />
+                {/* Top fade – stronger white wash on mobile so long text stays readable */}
+                <div className="absolute bottom-0 h-[85%] w-full bg-linear-to-b from-white via-white/80 max-sm:via-white/85 max-sm:via-65% max-sm:to-white/30 to-transparent " />
+                {/* Bottom fade to seamlessly blend with the Prices section (gold tone) */}
+
             </div>
-          
+
         </section>
     )
 }
