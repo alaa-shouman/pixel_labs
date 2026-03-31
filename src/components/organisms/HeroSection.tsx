@@ -78,7 +78,7 @@ export function HeroSection() {
                     <div className="pointer-events-none absolute inset-0 grid place-items-center px-6">
                         <div className="space-y-5 text-center text-white">
                             <h1 className="text-4xl font-light tracking-[0.22em] sm:text-6xl">The Pixel Lab</h1>
-                            <p className="text-lg tracking-[0.25em] text-white/90 sm:text-2xl">PHOTOGRAFER</p>
+                            <p className="text-lg tracking-[0.25em] text-white/90 sm:text-2xl">PHOTOGRAPHER</p>
                         </div>
                     </div>
 
