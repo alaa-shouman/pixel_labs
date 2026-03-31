@@ -47,7 +47,7 @@ export function PricesSection() {
 
     const [heading, setHeading] = useState("Prices")
     const [whatsAppNumber, setWhatsAppNumber] = useState("96170821128")
-    const [buttonLabel, setButtonLabel] = useState("Schedulle photosession")
+    const [buttonLabel, setButtonLabel] = useState("Schedule photo session")
     const [packages, setPackages] = useState<PricePackage[]>(fallbackPackages)
 
     useEffect(() => {
@@ -72,7 +72,7 @@ export function PricesSection() {
 
             setHeading(data.heading ?? "Prices")
             setWhatsAppNumber(data.whatsAppNumber ?? "96170821128")
-            setButtonLabel(data.buttonLabel ?? "Schedulle photosession")
+            setButtonLabel(data.buttonLabel ?? "Schedule photo session")
 
             if (Array.isArray(data.packages) && data.packages.length > 0) {
                 const sanitized = data.packages
