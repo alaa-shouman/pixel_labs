@@ -2,8 +2,7 @@ import { HeroSection } from "@/components/organisms/HeroSection"
 import { AboutMeSection } from "@/components/organisms/AboutMeSection"
 import { PortfolioSection } from "@/components/organisms/PortfolioSection"
 import { PricesSection } from "@/components/organisms/PricesSection"
-import { Analytics } from "@vercel/analytics/next"
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 function App() {
