@@ -14,7 +14,7 @@ function App() {
         <HeroSection />
       </section>
 
-      <section id="portfolio-birthday-trigger" aria-label="Photographer portfolio gallery">
+      <section aria-label="Photographer portfolio gallery">
         <PortfolioSection />
       </section>
 
