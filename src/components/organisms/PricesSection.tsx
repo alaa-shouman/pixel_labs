@@ -104,7 +104,7 @@ export function PricesSection() {
                         return (
                             <div
                                 key={pkg.name}
-                                className="flex w-full max-w-88 flex-col rounded-[2.5rem] bg-white p-8 shadow-[0_12px_50px_rgba(0,0,0,0.06)] ring-1 ring-black/3 sm:p-10"
+                                className="flex w-full  flex-col rounded-[2.5rem] bg-white p-8 shadow-[0_12px_50px_rgba(0,0,0,0.06)] ring-1 ring-black/3 sm:p-10"
                             >
                                 <div className="text-center">
                                     <h3 className="text-sm font-medium tracking-[0.08em] text-[#333] sm:text-[0.95rem]">{pkg.name}</h3>
@@ -113,17 +113,17 @@ export function PricesSection() {
                                 </div>
 
                                 <div className="mt-12 flex-1 space-y-6">
-                                    <div className="flex items-end justify-between border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                        <span className="font-light">duration</span>
-                                        <span className="font-normal text-[#222]">{pkg.duration}</span>
+                                    <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
+                                        <span className="shrink-0 font-light">duration</span>
+                                        <span className="text-right font-normal text-[#222]">{pkg.duration}</span>
                                     </div>
-                                    <div className="flex items-end justify-between border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                        <span className="font-light">number of photos</span>
-                                        <span className="font-normal text-[#222]">{pkg.photos}</span>
+                                    <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
+                                        <span className="shrink-0 font-light">number of photos</span>
+                                        <span className="text-right font-normal text-[#222]">{pkg.photos}</span>
                                     </div>
                                     {pkg.consultationOnStyle !== false && (
-                                        <div className="flex items-end justify-between border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                            <span className="font-light">consultation on style</span>
+                                        <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
+                                            <span className="shrink-0 font-light">consultation on style</span>
                                             <span></span>
                                         </div>
                                     )}
