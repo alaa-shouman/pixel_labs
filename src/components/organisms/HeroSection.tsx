@@ -8,6 +8,7 @@ export function HeroSection() {
                 <img
                     src={photographerImage}
                     alt="Photographer holding a camera"
+                    fetchPriority="high"
                     className="absolute inset-0 h-full w-full object-cover object-center"
                 />
 

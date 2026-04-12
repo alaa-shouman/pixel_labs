@@ -1,0 +1,23 @@
+{
+  "name": "The Pixel Lab",
+  "short_name": "The Pixel Lab",
+  "description": "Professional photography by Hanin — portrait, fashion, and lifestyle.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "174x174",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "174x174",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

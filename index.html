@@ -12,6 +12,10 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://thepixellab.online/" />
 
+    <!-- Geo / Local SEO -->
+    <meta name="geo.region" content="LB-BA" />
+    <meta name="geo.placename" content="Beirut, Lebanon" />
+
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepixellab.online/" />
@@ -31,9 +35,10 @@
     <meta name="twitter:image" content="https://thepixellab.online/og-image.jpg" />
     <meta name="twitter:image:alt" content="The Pixel Lab — cinematic hero photography shot" />
 
-    <!-- Favicon (corrected MIME type: was image/svg+xml, file is .png) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- Font preconnect (reduces LCP latency by resolving DNS early) -->
     <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
@@ -59,6 +64,11 @@
           "image": "https://thepixellab.online/og-image.jpg",
           "sameAs": ["https://www.instagram.com/thepixellab.lb"],
           "priceRange": "$100\u2013$350",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Beirut",
+            "addressCountry": "LB"
+          },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Photography Packages",
