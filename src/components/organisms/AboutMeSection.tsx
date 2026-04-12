@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import photoshootImage from "@/assets/photoshoot.jpg"
 import { sanityClient, urlFor } from "@/lib/sanity"
 
+
 type SanityAboutPage = {
     sectionLabel?: string
     heading?: string
@@ -10,6 +11,7 @@ type SanityAboutPage = {
 }
 
 export function AboutMeSection() {
+    const [bgLoaded, setBgLoaded] = useState(false)
     const [sectionLabel, setSectionLabel] = useState("SOMETHING")
     const [heading, setHeading] = useState("ABOUT ME")
     const [paragraphs, setParagraphs] = useState<string[]>([
@@ -60,7 +62,14 @@ export function AboutMeSection() {
             </div>
 
             <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full" aria-hidden="true">
-                <img src={backgroundSrc} alt="" className="absolute bottom-0 h-[85%] w-full object-cover object-top" />
+                <img
+                    key={backgroundSrc}
+                    src={backgroundSrc}
+                    alt=""
+                    decoding="async"
+                    onLoad={() => setBgLoaded(true)}
+                    className={`absolute bottom-0 h-[85%] w-full object-cover object-top transition-opacity duration-1000 ${bgLoaded ? "opacity-100" : "opacity-0"}`}
+                />
                 {/* Top fade – stronger white wash on mobile so long text stays readable */}
                 <div className="absolute bottom-0 h-[85%] w-full bg-linear-to-b from-white via-white/80 max-sm:via-white/60 max-sm:via-65% max-sm:to-white/40 to-transparent " />
                 {/* Bottom fade to seamlessly blend with the Prices section (gold tone) */}

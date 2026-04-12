@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { sanityClient, urlFor } from "@/lib/sanity"
 
 type PortfolioItem = {
@@ -83,6 +83,11 @@ export function PortfolioSection() {
     const [sectionLabel, setSectionLabel] = useState("PHOTOGRAPHY")
     const [heading, setHeading] = useState("PORTFOLIO")
     const [items, setItems] = useState<PortfolioItem[]>(portfolioItems)
+    const [loadedIds, setLoadedIds] = useState<Set<string>>(new Set())
+
+    const handleImageLoad = useCallback((id: string) => {
+        setLoadedIds((prev) => new Set(prev).add(id))
+    }, [])
 
     useEffect(() => {
         const query = `*[_type == "portfolioSection"][0]{
@@ -170,16 +175,24 @@ export function PortfolioSection() {
 
                 <div className="mt-6 w-full max-w-5xl">
                     <div className="grid aspect-square grid-cols-3 grid-rows-3 gap-2 sm:gap-3">
-                        {visibleItems.map((item) => (
-                            <article key={item.id} className="h-full w-full overflow-hidden bg-[#e8e8e8]">
-                                <img
-                                    src={item.src}
-                                    alt={item.alt}
-                                    loading="lazy"
-                                    className="h-full w-full object-cover object-center"
-                                />
-                            </article>
-                        ))}
+                        {visibleItems.map((item) => {
+                            const loaded = loadedIds.has(item.id)
+                            return (
+                                <article key={item.id} className="relative h-full w-full overflow-hidden bg-[#e8e8e8]">
+                                    {!loaded && (
+                                        <div className="skeleton-shimmer absolute inset-0" aria-hidden="true" />
+                                    )}
+                                    <img
+                                        src={item.src}
+                                        alt={item.alt}
+                                        loading="lazy"
+                                        decoding="async"
+                                        onLoad={() => handleImageLoad(item.id)}
+                                        className={`h-full w-full object-cover object-center transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
+                                    />
+                                </article>
+                            )
+                        })}
                     </div>
                 </div>
 

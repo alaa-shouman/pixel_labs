@@ -1,15 +1,19 @@
+import { useState } from "react"
 import photographerImage from "@/assets/photographer.jpg"
 import logoImage from "@/assets/thepixellabs-removebg-preview.png"
 
 export function HeroSection() {
+    const [heroLoaded, setHeroLoaded] = useState(false)
+
     return (
         <div className="grid h-dvh place-items-center">
-            <div className="relative isolate h-full w-full overflow-hidden">
+            <div className="relative isolate h-full w-full overflow-hidden bg-[#111]">
                 <img
                     src={photographerImage}
                     alt="Photographer holding a camera"
                     fetchPriority="high"
-                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    onLoad={() => setHeroLoaded(true)}
+                    className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${heroLoaded ? "opacity-100" : "opacity-0"}`}
                 />
 
                 <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
