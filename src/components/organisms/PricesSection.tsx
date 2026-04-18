@@ -147,7 +147,7 @@ export function PricesSection() {
 
                                 <div className="mt-12 flex-1 space-y-6">
                                     <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                        <span className="shrink-0 font-light">duration</span>
+                                        <span className="shrink-0 font-light">Duration</span>
                                         <span className="text-right font-normal text-[#222]">{pkg.duration}</span>
                                     </div>
                                     <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
