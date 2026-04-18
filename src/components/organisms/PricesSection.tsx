@@ -156,7 +156,7 @@ export function PricesSection() {
                                     </div>
                                     {pkg.consultationOnStyle !== false && (
                                         <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                            <span className="shrink-0 font-light">consultation on style</span>
+                                            <span className="shrink-0 font-light">Consultation on style</span>
                                             <span></span>
                                         </div>
                                     )}
