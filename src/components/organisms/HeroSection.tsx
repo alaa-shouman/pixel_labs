@@ -1,5 +1,5 @@
 import { useState } from "react"
-import photographerImage from "@/assets/photographer.jpg"
+import photographerImage from "@/assets/photographer.jpeg"
 import logoImage from "@/assets/thepixellabs-removebg-preview.png"
 
 export function HeroSection() {
@@ -13,19 +13,19 @@ export function HeroSection() {
                     alt="Photographer holding a camera"
                     fetchPriority="high"
                     onLoad={() => setHeroLoaded(true)}
-                    className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${heroLoaded ? "opacity-100" : "opacity-0"}`}
+                    className={`absolute inset-0 h-full w-full object-cover object-[50%_25%] transition-opacity duration-1000 ${heroLoaded ? "opacity-100" : "opacity-0"}`}
                 />
 
-                <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
                 <div className="hero-fog-top pointer-events-none absolute inset-x-0 top-[-20%] z-2 h-[58%]" aria-hidden="true" />
-                <div className="hero-fog-bottom pointer-events-none absolute inset-x-0 bottom-[-14%] z-2 h-[50%]" aria-hidden="true" />
+                <div className="hero-fog-bottom pointer-events-none absolute inset-x-0  bottom-[-14%] z-2 h-[50%]" aria-hidden="true" />
                 <div className="hero-noise pointer-events-none absolute inset-0 z-3 opacity-[0.14] mix-blend-screen" aria-hidden="true" />
 
                 <div className="relative z-10 h-full p-8 sm:p-10 md:p-12">
                     <header className="flex items-center justify-between gap-4">
                         <a
                             href="#"
-                            className="inline-flex items-center gap-3 text-white/95 transition-opacity hover:opacity-75"
+                            className="inline-flex items-center gap-3 text-black/95 transition-opacity hover:opacity-75"
                             aria-label="Homepage"
                         >
                             <img src={logoImage} alt="The Pixel Lab logo" className="h-15 w-auto object-contain" />
@@ -36,7 +36,7 @@ export function HeroSection() {
                             <a
                                 href="https://www.instagram.com/thepixellab.lb"
                                 aria-label="Instagram profile"
-                                className="inline-flex items-center justify-center text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
+                                className="inline-flex items-center justify-center text-black/90 transition-all hover:-translate-y-0.5 hover:text-black"
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -59,7 +59,7 @@ export function HeroSection() {
                             <a
                                 href="https://wa.me/96170821128"
                                 aria-label="WhatsApp contact"
-                                className="inline-flex items-center justify-center text-white/90 transition-all hover:-translate-y-0.5 hover:text-white"
+                                className="inline-flex items-center justify-center text-black/90 transition-all hover:-translate-y-0.5 hover:text-black"
                                 target="_blank"
                                 rel="noreferrer"
                             >

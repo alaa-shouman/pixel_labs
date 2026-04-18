@@ -25,7 +25,7 @@ The site features a clean, minimalist design with smooth scrolling, responsive l
 pixel_labs/
 ├── src/
 │   ├── assets/              # Images and media files
-│   │   ├── photographer.jpg
+│   │   ├── photographer.jpeg
 │   │   ├── photoshoot.jpg
 │   │   ├── thepixellabs-removebg-preview.png
 │   │   ├── thepixellabs.png
