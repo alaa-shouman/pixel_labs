@@ -68,7 +68,7 @@ export function AboutMeSection() {
                     alt=""
                     decoding="async"
                     onLoad={() => setBgLoaded(true)}
-                    className={`absolute bottom-0 h-[85%] w-full object-cover object-top transition-opacity duration-1000 ${bgLoaded ? "opacity-100" : "opacity-0"}`}
+                    className={`absolute bottom-0 h-[85%] w-full object-cover  transition-opacity duration-1000 ${bgLoaded ? "opacity-100" : "opacity-0"}`}
                 />
                 {/* Top fade – stronger white wash on mobile so long text stays readable */}
                 <div className="absolute bottom-0 h-[85%] w-full bg-linear-to-b from-white via-white/80 max-sm:via-white/60 max-sm:via-65% max-sm:to-white/40 to-transparent " />
