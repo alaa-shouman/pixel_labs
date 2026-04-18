@@ -96,7 +96,7 @@ export function PricesSection() {
                     <div
                         role="tablist"
                         aria-label="Photography session types"
-                        className="mt-10 flex w-full gap-3 border-b border-[#dddddd] pb-2 sm:gap-6 sm:pb-3"
+                        className="mt-10 flex w-full gap-3 overflow-hidden pb-1 justify-center"
                     >
                         {sections.map((section) => {
                             const isActive = section._id === activeSectionId
@@ -109,12 +109,13 @@ export function PricesSection() {
                                     aria-selected={isActive}
                                     aria-controls={panelId(section._id)}
                                     onClick={() => setActiveSectionId(section._id)}
-                                    className={`relative pb-2 text-left text-sm font-semibold tracking-[0.02em] transition-colors sm:text-xl ${
-                                        isActive ? "text-[#333333]" : "text-[#9b9b9b] hover:text-[#666666]"
+                                    className={`rounded-full border px-5 py-2 text-sm font-medium tracking-wide transition-colors ${
+                                        isActive
+                                            ? "shrink-0 border-black bg-black text-white"
+                                            : "min-w-0 shrink truncate border-black/20 text-[#555] hover:border-black/50 hover:text-[#222]"
                                     }`}
                                 >
                                     {section.heading}
-                                    {isActive && <span className="absolute inset-x-0 bottom-0 h-[1.5px] bg-[#bdbdbd]" aria-hidden="true" />}
                                 </button>
                             )
                         })}
