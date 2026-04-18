@@ -26,7 +26,7 @@ pixel_labs/
 ├── src/
 │   ├── assets/              # Images and media files
 │   │   ├── photographer.jpeg
-│   │   ├── photoshoot.jpg
+│   │   ├── photoshoot.jpeg
 │   │   ├── thepixellabs-removebg-preview.png
 │   │   ├── thepixellabs.png
 │   │   ├── hero.png

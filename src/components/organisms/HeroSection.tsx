@@ -13,7 +13,7 @@ export function HeroSection() {
                     alt="Photographer holding a camera"
                     fetchPriority="high"
                     onLoad={() => setHeroLoaded(true)}
-                    className={`absolute inset-0 h-full w-full object-cover object-[50%_25%] transition-opacity duration-1000 ${heroLoaded ? "opacity-100" : "opacity-0"}`}
+                    className={`absolute inset-0 h-full w-full object-cover object-[75%_1%] md:object-[70%_25%] transition-opacity duration-1000 ${heroLoaded ? "opacity-100" : "opacity-0"}`}
                 />
 
                 <div className="absolute inset-0 bg-black/30" aria-hidden="true" />

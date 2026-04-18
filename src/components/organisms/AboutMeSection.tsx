@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import photoshootImage from "@/assets/photoshoot.jpg"
+import photoshootImage from "@/assets/photoshoot.jpeg"
 import { sanityClient, urlFor } from "@/lib/sanity"
 
 
