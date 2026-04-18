@@ -151,7 +151,7 @@ export function PricesSection() {
                                         <span className="text-right font-normal text-[#222]">{pkg.duration}</span>
                                     </div>
                                     <div className="flex items-start justify-between gap-2 border-b border-[#d8d0cf] pb-1.5 text-[0.85rem] text-[#444]">
-                                        <span className="shrink-0 font-light">number of photos</span>
+                                        <span className="shrink-0 font-light">Numbers of photos</span>
                                         <span className="text-right font-normal text-[#222]">{pkg.photos}</span>
                                     </div>
                                     {pkg.consultationOnStyle !== false && (
